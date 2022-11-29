@@ -5,6 +5,7 @@
   margin: 0;
   font-family: 'Quicksand';
   color: #333;
+  box-sizing: border-box;
 }
 .navbar {
   padding: 20px;
@@ -54,7 +55,6 @@
   text-decoration: none;
 }
 
-
 /* blog details page */
 .blog-details h2 {
   font-size: 20px;
@@ -67,6 +67,45 @@
 .blog-details button {
   background: #f1356d;
   color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.create label {
+  text-align: left;
+  display: block;
+}
+
+.create h2 {
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: #f1356d;
+}
+
+.create input,
+.create textarea,
+.create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0px 20px 0;
+  border: 1px solid #ddd;
+  display: block;
+  outline: none;
+}
+
+
+.create button {
+  background-color: #f1356d;
+  color: #fff;
+  margin-top: 10px;
   border: 0;
   padding: 8px;
   border-radius: 8px;
