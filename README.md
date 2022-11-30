@@ -1,4 +1,4 @@
-# PersonalProject
+# The Dojo Blog
 这是一个用React搭建的博客小项目.
 
 
