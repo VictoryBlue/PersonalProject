@@ -1,13 +1,11 @@
 import React from 'react';
-import Setup from './tutorial/1-useState/setup/2-useState-basics';
+import UseStateArray from './tutorial/1-useState/setup/3-useState-array';
 import './index.css';
-
 
 function App() {
   return (
-    <div className="container">
-      <Setup/>
-      
+    <div className ="container">
+      <UseStateArray/>
     </div>
   );
 }
