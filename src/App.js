@@ -1,13 +1,13 @@
 import React from 'react';
-import Setup from './tutorial/1-useState/setup/4-useState-object';
+import UseStateCounter from './tutorial/1-useState/setup/5-useState-counter';
 import './index.css';
 
 function App() {
   return (
     <div className="container">
-      <Setup />
+      <UseStateCounter />
     </div>
   );
 }
 
-export default App;
+export default UseStateCounter;
