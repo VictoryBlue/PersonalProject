@@ -7,12 +7,13 @@ const UseStateCounter = () => {
     setValue(0);
   };
   //Note:注释的写法快速点击10下只更改一次，怀疑promise.then().then()，许跟队列有关。
-  //可以在setValue里传递值也可以传递参数
+  //可以在setValue里传递值也可以传递函数
+  //setText保存之前的state，并触发re-render
   const complexIncrease = () => {
     setTimeout(() => {
       // setValue(value+1)
       setValue((preValue) => {
-        setValue(preValue+1)
+        setValue(preValue + 1);
       });
     }, 2000);
   };
@@ -38,7 +39,6 @@ const UseStateCounter = () => {
         <button className="btn" onClick={complexIncrease}>
           increase later
         </button>
-        
       </section>
     </>
   );
