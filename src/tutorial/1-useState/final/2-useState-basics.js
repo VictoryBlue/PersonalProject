@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-// starts with use
+// starts with use (自定义hook)
 // component must be uppercase
 // invoke inside function/component body
 // don't call hooks conditonally
-
+// 调用setState的时候re-render组件
 const UseStateBasics = () => {
   // console.log(useState());
   // const value = useState()[0];
