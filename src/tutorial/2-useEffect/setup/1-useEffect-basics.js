@@ -14,7 +14,7 @@ const UseEffectBasics = () => {
   //   }
   // });
   // 解决方案2.是在hook里面使用条件
-  // second parameter为[]，只在初始渲染的时候调用useEffect，此后re-render都不调用，如果不设置second parameter，组件每次re-render，useEffect都调用.
+  // second parameter为[]，只在初始渲染的时候调用useEffect，没有变量的改变可以触发这个Effect，此后re-render都不调用，如果不设置second parameter，组件每次re-render，useEffect都调用.
   // 每次value改变的时候调用
   useEffect(() => {
     console.log('call useEffect');
