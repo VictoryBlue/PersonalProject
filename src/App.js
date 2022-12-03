@@ -1,13 +1,13 @@
 import React from 'react';
-import UseEffectFetchData from './tutorial/2-useEffect/setup/3-useEffect-fetch-data';
+import ControlledInputs from './tutorial/4-forms/setup/1-controlled-inputs';
 import './index.css';
 
 function App() {
   return (
     <div className="container">
-      <UseEffectFetchData />
+      <ControlledInputs />
     </div>
   );
 }
 
-export default UseEffectFetchData;
+export default ControlledInputs;
