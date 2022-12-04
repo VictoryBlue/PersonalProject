@@ -1,13 +1,13 @@
 import React from 'react';
-import ControlledInputs from './tutorial/4-forms/setup/1-controlled-inputs';
+import UseRefBasics from './tutorial/5-useRef/setup/1-useRef-basics';
 import './index.css';
 
 function App() {
   return (
     <div className="container">
-      <ControlledInputs />
+      <UseRefBasics />
     </div>
   );
 }
 
-export default ControlledInputs;
+export default UseRefBasics;
