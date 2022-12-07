@@ -1,13 +1,14 @@
 import React from 'react';
-import UseRefBasics from './tutorial/5-useRef/setup/1-useRef-basics';
-import './index.css';
+import Index from './tutorial/6-useReducer/setup';
+
+
 
 function App() {
   return (
     <div className="container">
-      <UseRefBasics />
+      <Index />
     </div>
   );
 }
 
-export default UseRefBasics;
+export default Index;
