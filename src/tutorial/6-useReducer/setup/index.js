@@ -1,39 +1,62 @@
 import React, { useState, useReducer } from 'react';
 import Modal from './Modal';
 import { data } from '../../../data';
+import { reducer } from '../reducer';
 // reducer function
+// Note：不再单独调用setName setPeople而是通过reducer匹配dispatch的模式，很像switch
+
+const defaultState = {
+  people: data,
+  isModalOpen: false,
+  modalContent: '',
+};
 
 const Index = () => {
   const [name, setName] = useState('');
-  const [people, setPeople] = useState(data);
-  const [showModal, setShowModal] = useState(false);
+  const [state, dispatch] = useReducer(reducer, defaultState);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
-      setShowModal(true);
-      setPeople([...people, { id: new Date().getTime().toString(), name }]);
-      setName('');
+      const newItems = { id: new Date().getTime().toString() };
+      dispatch({ type: 'ADD_ITEM', payload: newItems });
     } else {
-      setShowModal(true);
+      dispatch({ type: 'NO_VALUE' });
     }
+  };
+  const closeModal = () => {
+    dispatch({ type: 'CLOSE_MODAL' });
   };
   return (
     <>
-      {showModal && <Modal />}
-      <form onSubmit={handleSubmit}>
+      {state.isModalOpen && (
+        <Modal closeModal={closeModal} modalContent={state.modalContent} />
+      )}
+      <form className="form" onSubmit={handleSubmit}>
         <div>
           <input
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            className="form-control"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
           />
         </div>
-        <button type="submit">add</button>
+        <button className="btn" type="submit">
+          add
+        </button>
       </form>
-      {people.map((person) => {
+      {state.people.map((person) => {
         return (
-          <div key={person.id}>
+          <div key={person.id} className="item">
             <h4>{person.name}</h4>
+            <button
+              onClick={() => {
+                dispatch({ type: 'REMOVE_ITEM', payload: person.id });
+              }}
+            >
+              remove
+            </button>
           </div>
         );
       })}

@@ -8,7 +8,7 @@ const UseEffectCleanup = () => {
   const checksize = ()=>{
     setSize(window.innerWidth)
   }
-  // Note:在渲染之后，在调用useEffect之前，先执行useEffect的cleanUp函数，这可以避免增加过多的事件监听器。
+  // Note:在渲染之后，在调用useEffect的回调之前，先执行useEffect的cleanUp函数，这可以避免增加过多的事件监听器。
   useEffect(()=>{
     console.log('useEffect')
     window.addEventListener('resize', checksize)
