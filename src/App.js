@@ -1,10 +1,11 @@
 import React from 'react';
-import Index from './tutorial/10-prop-types/setup';
+import ReactRouterSetup from './tutorial/11-react-router/setup';
 
 function App() {
   return (
     <div className="container">
-      <Index />
+      <h2>advanced react</h2>
+      <ReactRouterSetup />
     </div>
   );
 }
