@@ -1,14 +1,12 @@
 import React from 'react';
-import Index from './tutorial/6-useReducer/setup';
-
-
+import Example from './tutorial/9-custom-hooks/setup/1-fetch-example';
 
 function App() {
   return (
     <div className="container">
-      <Index />
+      <Example />
     </div>
   );
 }
 
-export default Index;
+export default App;
