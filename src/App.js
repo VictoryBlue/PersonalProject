@@ -1,11 +1,11 @@
 import React from 'react';
-import Index from './tutorial/12-memo-useMemo-useCallback/setup';
+import ErrorExample from './tutorial/1-useState/setup/1-error-example';
 
 function App() {
   return (
     <div className="container">
       <h2>advanced react</h2>
-      <Index/>
+      <ErrorExample/>
     </div>
   );
 }
