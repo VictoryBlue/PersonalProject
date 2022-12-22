@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+
+import Timer from './Timer';
+// ATTENTION!!!!!!!!!!
+// I SWITCHED TO PERMANENT DOMAIN
 
 function App() {
+  const [records, setRecord] = useState([]);
+  // Note:第二个参数是空数组的时候，也是render完成后在调用fetchTours
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Timer />
+    </main>
   );
 }
 
