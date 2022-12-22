@@ -4,7 +4,19 @@ import Categories from './Categories';
 import items from './data';
 
 function App() {
-  return <h2>menu project setup</h2>;
+  const [questions, setQuestions] = useState(data);
+  return (
+    <main>
+      <div className="container">
+        <h3>questions and answers about login</h3>
+        <section className="info">
+          {questions.map((question) => {
+            return <SingleQuestion key={question.id} {...question} />;
+          })}
+        </section>
+      </div>
+    </main>
+  );
 }
 
 export default App;
