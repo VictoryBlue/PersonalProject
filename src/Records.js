@@ -1,9 +1,12 @@
 import React from 'react';
 import Tour from './Tour';
-const Records = ({ tours, setTours }) => {
+const Records = ({ records, setRecords }) => {
   return (
     <>
-      <h2>Tours</h2>
+      {records.length > 0 &&
+        records.map((record) => {
+          return <div key={record.id}>{record.time}</div>;
+        })}
     </>
   );
 };
