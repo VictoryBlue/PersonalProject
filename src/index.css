@@ -230,6 +230,34 @@ main {
   display: flex;
   justify-content: space-evenly;
 }
-.TimerDiff{
+.TimerDiff {
   text-align: center;
+}
+.record {
+  border: 3px solid #fff;
+  padding: 12px 24px;
+  margin: 1rem;
+  color: var(--clr-grey-1);
+  font-weight: 400;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--radius);
+  box-shadow: 0 0 5px rgba(130, 121, 121, 0.1);
+}
+
+.delBtn {
+  color: #fff;
+  background: var(--clr-primary-5);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border: transparent;
+}
+
+.timerTitle {
+  text-align: 'center';
+  display: flex;
+  justify-content: space-evenly;
 }

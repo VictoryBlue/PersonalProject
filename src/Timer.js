@@ -9,7 +9,17 @@ const Timer = () => {
 
   return (
     <div>
-      <h1 className="TimerDiff">{state.timeDiff / 1000} s</h1>
+      <h1 className="timerTitle">
+        <span className="TimerDiff">{state.timeDiff / 1000}s</span>
+        {records.length != 0 && (
+          <span className="TimerDiff">
+            {records.reduce((pre, cur) => {
+              return pre + cur.time;
+            }, 0) / 1000}
+            s
+          </span>
+        )}
+      </h1>
       <div className="Timer">
         <button
           className="btn"
@@ -30,7 +40,7 @@ const Timer = () => {
                 time: state.timeDiff,
               },
             ]);
-            console.log(records.length);
+
             dispatch({ type: 'add' });
           }}
         >
@@ -44,8 +54,19 @@ const Timer = () => {
         >
           重置
         </button>
+        <button
+          className="btn"
+          onClick={() => {
+            dispatch({ type: 'clear' });
+            setRecords([]);
+          }}
+        >
+          清空
+        </button>
       </div>
       <Records records={records} setRecords={setRecords} />
+
+     
     </div>
   );
 };

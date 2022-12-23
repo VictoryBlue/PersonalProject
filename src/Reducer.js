@@ -15,7 +15,11 @@ export const reducer = (state, action) => {
       };
     }
   }
-  if (action.type === 'reset' || action.type === "add") {
+  if (
+    action.type === 'reset' ||
+    action.type === 'add' ||
+    action.type === 'clear'
+  ) {
     return initialState;
   }
   
