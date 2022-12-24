@@ -14,9 +14,13 @@ const SingleRecord = ({ record }) => {
     e.preventDefault();
     const inputTime = e.target.querySelector('#time');
     record = { id: record.id, time: Number(inputTime.value) * 1000 };
-    console.log(record);
-    records[record.id] = record;
+
+    records.forEach((r, i) => {
+      if (r.id === record.id) records[i] = record;
+    });
+
     setRecords(Array.from(records));
+    console.log(records);
     e.target.reset();
   };
   return (
