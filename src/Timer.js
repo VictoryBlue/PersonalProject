@@ -5,9 +5,7 @@ import initialState from './initialState';
 import { RecordsContext } from './App';
 
 const Timer = () => {
-  console.log(RecordsContext);
   const { records, setRecords } = useContext(RecordsContext);
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // const [records, setRecords] = useState([]);
