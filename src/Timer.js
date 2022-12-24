@@ -39,7 +39,7 @@ const Timer = () => {
             setRecords([
               ...records,
               {
-                id: records.length,
+                id: new Date().getTime(),
                 time: state.timeDiff,
               },
             ]);

@@ -28,7 +28,13 @@ const SingleRecord = ({ record }) => {
       <span>{record.time / 1000}s</span>
       <div>
         <form onSubmit={(e) => handleEdit(e, record)}>
-          <input id="time" type="number" name="time" step="0.1" />
+          <input
+            id="time"
+            type="number"
+            name="time"
+            step="0.1"
+            placeholder="请输入时间"
+          />
           <button type="submit" className="itemBtn">
             更改
           </button>
