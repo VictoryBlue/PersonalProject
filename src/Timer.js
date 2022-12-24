@@ -1,11 +1,16 @@
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useContext } from 'react';
 import { reducer } from './Reducer';
 import Records from './Records';
 import initialState from './initialState';
+import { RecordsContext } from './App';
 
 const Timer = () => {
+  console.log(RecordsContext);
+  const { records, setRecords } = useContext(RecordsContext);
+
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [records, setRecords] = useState([]);
+
+  // const [records, setRecords] = useState([]);
 
   return (
     <div>
@@ -64,9 +69,6 @@ const Timer = () => {
           清空
         </button>
       </div>
-      <Records records={records} setRecords={setRecords} />
-
-     
     </div>
   );
 };

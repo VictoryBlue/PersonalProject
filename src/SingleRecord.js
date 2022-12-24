@@ -1,4 +1,8 @@
-const SingleRecord = ({ record, records, setRecords }) => {
+import { useContext } from 'react';
+import { RecordsContext } from './App';
+const SingleRecord = ({ record }) => {
+  const { records, setRecords } = useContext(RecordsContext);
+
   const handleDelete = (record) => {
     setRecords(
       records.filter((r) => {
