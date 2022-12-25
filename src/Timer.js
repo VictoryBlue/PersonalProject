@@ -8,8 +8,6 @@ const Timer = () => {
   const { records, setRecords } = useContext(RecordsContext);
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // const [records, setRecords] = useState([]);
-
   return (
     <div>
       <h1 className="timerTitle">
@@ -69,8 +67,6 @@ const Timer = () => {
       </div>
     </div>
   );
-
-  
 };
 
 export default Timer;

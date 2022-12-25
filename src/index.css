@@ -268,3 +268,15 @@ main {
   justify-content: space-between;
   gap: 6px;
 }
+.recordIdx {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.record .info {
+  color: var(--clr-grey-2);
+  display: flex;
+  gap: 2.4rem;
+  font-weight: 500;
+  align-items: center;
+}

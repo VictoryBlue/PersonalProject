@@ -6,12 +6,12 @@ const Records = () => {
   return (
     <>
       {records.length > 0 &&
-        records.map((record) => {
+        records.map((record, i) => {
           return (
             <SingleRecord
               key={record.id}
               record={record}
-              
+              idx={i}
             />
 
             // <div className="record" key={record.id}>

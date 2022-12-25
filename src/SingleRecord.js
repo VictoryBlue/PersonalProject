@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { RecordsContext } from './App';
-const SingleRecord = ({ record }) => {
+const SingleRecord = ({ record, idx }) => {
   const { records, setRecords } = useContext(RecordsContext);
 
   const handleDelete = (record) => {
@@ -20,12 +20,14 @@ const SingleRecord = ({ record }) => {
     });
 
     setRecords(Array.from(records));
-    console.log(records);
     e.target.reset();
   };
   return (
     <div className="record">
-      <span>{record.time / 1000}s</span>
+      <div className="info">
+        <span className="recordIdx">{idx}</span>
+        <span>{record.time / 1000}s</span>
+      </div>
       <div>
         <form onSubmit={(e) => handleEdit(e, record)}>
           <input
