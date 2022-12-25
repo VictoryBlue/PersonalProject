@@ -33,7 +33,8 @@ const SingleRecord = ({ record }) => {
             type="number"
             name="time"
             step="0.1"
-            placeholder="请输入时间"
+            placeholder="小数位后一位/s"
+            required={true}
           />
           <button type="submit" className="itemBtn">
             更改

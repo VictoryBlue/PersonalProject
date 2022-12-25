@@ -262,3 +262,9 @@ main {
   display: flex;
   justify-content: space-evenly;
 }
+
+.record form {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}

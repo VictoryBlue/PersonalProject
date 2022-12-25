@@ -69,6 +69,8 @@ const Timer = () => {
       </div>
     </div>
   );
+
+  
 };
 
 export default Timer;
