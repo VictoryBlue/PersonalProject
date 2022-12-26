@@ -11,7 +11,7 @@ const Records = () => {
             <SingleRecord
               key={record.id}
               record={record}
-              idx={i}
+              idx={records.length - i}
             />
 
             // <div className="record" key={record.id}>

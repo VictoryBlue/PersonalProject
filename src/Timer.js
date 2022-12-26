@@ -34,11 +34,11 @@ const Timer = () => {
           className="btn"
           onClick={() => {
             setRecords([
-              ...records,
               {
                 id: new Date().getTime(),
                 time: state.timeDiff,
               },
+              ...records,
             ]);
 
             dispatch({ type: 'add' });
