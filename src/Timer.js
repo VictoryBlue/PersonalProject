@@ -7,7 +7,6 @@ import { RecordsContext } from './App';
 const Timer = () => {
   const { records, setRecords } = useContext(RecordsContext);
   const [state, dispatch] = useReducer(reducer, initialState);
-
   return (
     <div>
       <h1 className="timerTitle">
