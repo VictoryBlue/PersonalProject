@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaAngleDoubleRight } from 'react-icons/fa';
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
@@ -33,7 +33,7 @@ function App() {
         <h2>expirence</h2>
         <div className="underline"></div>
       </div>
-      <div className="job-center">
+      <div className="jobs-center">
         <div className="btn-container">
           {jobs.map((item, index) => {
             return (
