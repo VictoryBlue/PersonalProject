@@ -13,18 +13,6 @@ const Records = () => {
               record={record}
               idx={records.length - i}
             />
-
-            // <div className="record" key={record.id}>
-            //   <span>{record.time / 1000}s</span>
-            //   <button
-            //     className="delBtn"
-            //     onClick={() => {
-            //       handleDelete(record);
-            //     }}
-            //   >
-            //     删除
-            //   </button>
-            // </div>
           );
         })}
     </>

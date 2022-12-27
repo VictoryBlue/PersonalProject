@@ -1,4 +1,4 @@
-import { useState, useReducer, useContext } from 'react';
+import { useState, useReducer, useContext, useEffect } from 'react';
 import { reducer } from './Reducer';
 import Records from './Records';
 import initialState from './initialState';
@@ -7,6 +7,15 @@ import { RecordsContext } from './App';
 const Timer = () => {
   const { records, setRecords } = useContext(RecordsContext);
   const [state, dispatch] = useReducer(reducer, initialState);
+  useEffect(() => {
+    if (state.isPause) return;
+
+    const timer = setInterval(() => {
+      dispatch({ type: 'tick' });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [state.isPause]);
   return (
     <div>
       <h1 className="timerTitle">
