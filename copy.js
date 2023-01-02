@@ -17,7 +17,7 @@ function clone(target) {
     return cloneTarget;
   } else return target;
 }
-
+// 考虑数组
 function clone(target) {
   if (typeof target === 'object') {
     let cloneTarget = Array.isArray(target) ? [] : {};
@@ -27,6 +27,9 @@ function clone(target) {
     return cloneTarget;
   } else return target;
 }
+
+// 循环引用
+
 // test
 const target = {
   field1: 1,

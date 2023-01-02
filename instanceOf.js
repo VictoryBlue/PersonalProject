@@ -1,5 +1,5 @@
 function myInstanceof(left, right) {
-  let proto = Object.getPrototypeOf(left);
+  let proto = Object.getPrototypeOf(left); // Note
   while (true) {
     if (!proto) return false;
     if (proto === right.prototype) {
