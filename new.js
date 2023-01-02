@@ -3,7 +3,7 @@ function mynew(Func, ...args) {
   const obj = {};
   // 2.新对象原型指向构造函数原型对象
   obj.__proto__ = Func.prototype;
-  // 3.obj调用Func的代码进行初始化,args是数组
+  // 3.obj调用Func的代码进行初始化,args是数组,this指向obj
   let result = Func.apply(obj, args);
   // 4.根据返回值判断
   return result instanceof Object ? result : obj;
