@@ -1,12 +1,11 @@
 // 浅拷贝
 function clone(target) {
-    let cloneTarget = {};
-    for (const key in target) {
-        cloneTarget[key] = target[key];
-    }
-    return cloneTarget;
-};
-
+  let cloneTarget = {};
+  for (const key in target) {
+    cloneTarget[key] = target[key];
+  }
+  return cloneTarget;
+}
 
 // deepClone
 function clone(target) {
@@ -38,3 +37,4 @@ const target = {
   field4: [2, 4, 8],
 };
 console.log('clone(target)', clone(target));
+// ref:https://juejin.cn/post/6844903929705136141
