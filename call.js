@@ -3,6 +3,7 @@ Function.prototype.myCall = function (context, ...args) {
   context = context === undefined || context === null ? window : context;
 
   context.__fn = this.prototype.constructor;
+  // ...args,接受一系列参数，放置一系列参数【不写...是数组】
   let result = context.__fn(...args);
   delete context.__fn;
   return result;
