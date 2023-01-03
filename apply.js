@@ -1,5 +1,5 @@
 // args 是数组
-
+// this在执行的时候是会变得，如果要让改变this的指向到context，那么就应该让context调用存在this的方法
 Function.prototype.myApply = function (context, args) {
   context = context === undefined || context === null ? window : context;
   // this这时指向Function
