@@ -16,7 +16,7 @@
   设置是否展示导航栏的 state
   方式一:是否挂载组件
   方式二:设置 links-container 的 height（prefer，因为可以设置动效）
-  如果 links 特别多，那么把高度写死会造成 link 被隐藏，所以要根据 links 的数量动态确定 height。
+  如果 links 特别多，那么把高度写死会造成 link 被隐藏，所以要根据元素大小（getBoundingClientRect()）动态确定 height。
   因此每次 links 变动都要重新渲染--->useEffect
 
 ### icon 跳转效果
