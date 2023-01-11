@@ -14,12 +14,11 @@ function App() {
     const localData = localStorage.getItem('items')
       ? JSON.parse(localStorage.getItem('items'))
       : [];
-    console.log(items);
     setItems(localData);
   }, []);
-  // useEffect(() => {
-  //   localStorage.setItem('items', JSON.stringify(items));
-  // }, [items]);
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
 
   const addItem = (e) => {
     e.preventDefault();
@@ -35,7 +34,7 @@ function App() {
       setEditIdx(null);
     }
     setItems(newItems);
-    localStorage.setItem('items', JSON.stringify(newItems));
+    // localStorage.setItem('items', JSON.stringify(newItems));
     // 回归初始状态
     setbuttonName('submit');
     input.current.value = '';
