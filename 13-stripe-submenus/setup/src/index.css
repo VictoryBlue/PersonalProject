@@ -144,6 +144,7 @@ Stripe Styles
   display: flex;
   align-items: center;
   justify-content: center;
+  /* padding: 1rem 2rem; */
   background: transparent;
   position: relative;
   z-index: 1;
@@ -351,7 +352,7 @@ Stripe Styles
 .sidebar-sublinks {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 0.25rem;
+  /* row-gap: 0.25rem; */
 }
 .sidebar-sublinks a {
   display: block;
@@ -372,7 +373,7 @@ Stripe Styles
 }
 
 /* links */
-.submenu {
+/* .submenu {
   background: var(--clr-white);
   box-shadow: var(--dark-shadow);
   position: absolute;
@@ -384,6 +385,13 @@ Stripe Styles
   padding: 2rem;
   border-radius: var(--radius);
   transition: var(--transition);
+} */
+.submenu {
+  display: block;
+  /* z-index: 3; */
+  /* height: 100px; */
+  font-size: 100px;
+  position: absolute;
 }
 .submenu::before {
   content: '';
