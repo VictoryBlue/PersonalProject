@@ -2,7 +2,7 @@
 // this在执行的时候是会变得，如果要让改变this的指向到context，那么就应该让context调用存在this的方法
 Function.prototype.myApply = function (context, args) {
   context = context === undefined || context === null ? window : context;
-  // this这时指向Function
+  // this这时指向调用者
   context.__fn = this;
   let result = context.__fn(args); // 这时的this指向context，用args，执行构造函数（为了测试方便构造函数应该显式返回this）
   delete context.__fn;
@@ -10,8 +10,9 @@ Function.prototype.myApply = function (context, args) {
 };
 
 // test
-function person() {
+function person(name) {
+  this.name = name;
   return this;
 }
 
-console.log(person.apply({}));
+console.log(person.apply({}, ['wls']));

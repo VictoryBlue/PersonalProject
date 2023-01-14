@@ -8,10 +8,11 @@ Function.prototype.myCall = function (context, ...args) {
   delete context.__fn;
   return result;
 };
-// test
+// test;
 // function person(name) {
 //   this.name = name;
 // }
 // a = {};
 // person.myCall(a, 'wls');
+
 // console.log(a);
