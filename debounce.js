@@ -15,6 +15,7 @@ let wait = 50;
 
 function debounce(handleEvent, wait) {
   let timer = 0;
+  // 实际调用的防抖函数
   return function (...args) {
     if (timer) {
       clearTimeout(timer);
