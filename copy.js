@@ -27,7 +27,21 @@ function clone(target) {
     return cloneTarget;
   } else return target;
 }
+function deepclone(obj) {
+  if (typeof obj !== 'object' || obj === null) {
+    return obj;
+  }
+  let newobj = {};
+  if (obj instanceof Array) {
+    newobj = [];
+  }
 
+  for (let key in obj) {
+    // 只拷贝这个对象本身的属性，不拷贝原型链上的属性
+    if (obj.hasOwnProperty(key)) newobj[key] = deepclone(obj[key]);
+  }
+  return newobj;
+}
 // 循环引用
 
 // test

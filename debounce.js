@@ -2,7 +2,7 @@
 // 场景：因为用户可能会短时间[wait]内重复点击某一个button，这样会对服务器进行多次提交，【提交表单场景，搜索框联想场景】
 // 因此衍生防抖函数：wait时间内重复触发函数，则重新计时,wait时间内没有再次触发：
 
-// 如何调用？element.addEventListener('click', debounce(handleEvent),wait)
+// 如何调用？element.addEventListener('click', debounce(handleEvent,wait))
 // 写在对象里的调用方法：
 
 // objDebounce = debounce(handleEvent, wait);
