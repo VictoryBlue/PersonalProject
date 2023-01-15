@@ -24,9 +24,16 @@ function mynew(Func, ...args) {
 // }
 
 // function Toy(name, price) {
-//   Product.apply(this, [name, price]);
+//   this.name = name;
+//   this.price = price;
 //   this.category = 'toy';
+//   return {
+//     price: this.price,
+//     category: this.category,
+//   };
 // }
 
 // var cheese = new Food('feta', 5);
 // var fun = new Toy('robot', 40);
+// var fun = mynew(Toy, 'robot', 40);
+// console.log(fun);
