@@ -10,3 +10,10 @@ function is(x, y) {
     return x !== x && y !== y;
   }
 }
+// 判断是否是promise对象
+function isPromise(val) {
+  return val && Object.prototype.toString.call(val) === '[object Promise]';
+}
+// Object.prototype.toString.call(val)
+// 书写繁琐但是精准
+// console.log(isPromise(new Promise((resolve, reject) => {})));
