@@ -6,11 +6,14 @@ const module = {
     return this.x;
   },
 };
+// 感觉bind就是分两次接受参数，第一次返回函数，第二次返回对象复用代码的结果
 Function.prototype.myBind = function (context, ...args1) {
   const self = this;
   return function F(...args2) {
     if (self instanceof F) {
-      return new F()
+      // bind 生成的函数可以当成构造函数和new连用，这意味着当成被当成构造函数使用的时候，this总是指向new和构造函数造出来的对象
+      // 所以在context上复用代码就没有意义，因为new决定了不会在context上应用代码
+      return new self([...args1, ...args2]);
     }
     return self.apply(context, [...args1, ...args2]);
   };
@@ -23,13 +26,6 @@ const boundGetX = unboundGetX.bind(module); // 把 unboundGetX 的 this 绑定�
 console.log(boundGetX());
 // expected output: 42
 
-// 写法
-Function.prototype.myBind = function (context, ...args) {
-  context = context === undefined || context === null ? window : context;
-  const _this = this;
-  _this.apply(context);
-  return _this(...args);
-};
 function person() {}
 obj = {};
 obj.person = person.myBind(obj);
