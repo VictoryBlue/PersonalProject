@@ -66,3 +66,53 @@ myPromise.prototype.then = function (onFullfilled, onRejected) {
     default:
   }
 };
+
+// Promise.all
+// 传入参数：可迭代对象，里面的item可以是promise对象，也可以不是
+// 返回值是一个promise，如果所有的对象都被fullfilled，那么promise的值是各自结果对应的数组，否则进入then中触发rej的回调函数，或者被catch
+function getBannerList() {
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      resolve('轮播数据');
+    }, 300);
+  });
+}
+function getStoreList() {
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      resolve('店铺数据');
+    });
+  });
+}
+function getCategoryList() {
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      resolve('分类数据');
+      // reject('分类数据');
+    });
+  });
+}
+
+function initLoad() {
+  Promise.all([
+    getBannerList(),
+    getStoreList(),
+    getCategoryList(),
+    'not Promise',
+  ])
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+}
+initLoad();
+
+let fullfill = Promise.resolve('fullfill');
+let reject = Promise.reject('reject');
+let normal = 'normal';
+Promise.allSettled([fullfill, reject, normal]).then((res) => {
+  console.log(res);
+});
+
