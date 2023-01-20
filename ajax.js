@@ -7,20 +7,22 @@ function ajax(url, method) {
     const xhr = new XMLHttpRequest();
     // 设置请求方法和请求地址，这个时候请求还没有发,只是建立连接【联想socket.connet】
     xhr.open(method, url, true);
+    // 服务器下线，网络失败,跨域等触发onerror
+    // onload 会被触发，哪怕http的错误状态码也能返回
+    xhr.onerror = function () {
+      reject('请求数据失败');
+    };
+
     xhr.onreadystatechange = function () {
       // readyState为4:请求已完成，响应已经就绪
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
           resolve(xhr.responseText);
-        } else if (xhr.status === 404) {
-          reject(new Error('404'));
         } else {
-          reject('请求数据失败');
+          reject(new Error(xhr.statusText));
         }
       }
     };
-    // 设置请求头
-    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     // 发请求
     xhr.send(null);
   });
@@ -38,3 +40,5 @@ function ajax(url, method) {
 // ref:https://www.jianshu.com/p/536aea258b7f
 // 实例ref:https://blog.csdn.net/weixin_42448623/article/details/107529287
 // ajaxMdn ref:https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started
+
+// onload&onerror ref:https://stackoverflow.com/questions/10584318/when-should-xmlhttprequests-onerror-handler-fire
