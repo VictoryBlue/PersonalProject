@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        /* gap: 20px; */
+
+        /* flex-direction: row-reverse; */
+        flex-wrap: nowrap;
+        column-gap: 20px;
+        /* justify-content: flex-end; */
+        height: 600px;
+        align-content: space-between;
+      }
+      .box {
+        background: lavender;
+        width: 400px;
+        height: 200px;
+      }
+      .box6 {
+        order: 1;
+        flex-basis: 1900px;
+        /* flex-grow: 1; */
+        flex-shrink: 1;
+      }
+      .box4 {
+        order: 1;
+        /* flex-basis: 1900px; */
+        /* flex-grow: 1; */
+        flex-shrink: 1;
+      }
+      .box5 {
+        order: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <box class="box box1">1</box>
+      <box class="box box2">2</box>
+      <box class="box box3">3</box>
+      <box class="box box4">4</box>
+      <box class="box box5">5</box>
+      <box class="box box6">6</box>
+    </div>
+  </body>
+</html>

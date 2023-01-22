@@ -34,7 +34,7 @@ Child2.prototype.constructor = Child2;
 a = new Child2();
 console.log(a.educate());
 
-// 混用模式,有一个缺陷 new Parent3()
+// 混用模式,有一个缺陷 new Parent3
 function Parent3() {
   this.name = 'parent3';
   this.play = [1, 2, 3];
