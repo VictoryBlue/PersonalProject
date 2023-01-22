@@ -1,7 +1,7 @@
 'use strict';
 // 节流函数
 // 一定的时间内只触发一次回调函数
-// 设置setInterval每隔小于wait的时间调用，单位时间内【wait】多次触发函数只有一个生效
+// 设置setInterval每隔小于wait的时间调用，单位时间内【wait】多次触发handleEvent只有一个生效
 // 场景：浏览器resize
 
 const throttle = (handleEvent, wait) => {
@@ -32,4 +32,3 @@ setInterval(
   }, wait),
   500
 );
-
