@@ -1,3 +1,6 @@
+<!-- flex-grow:默认值为1，如果设置为0.5说明对空闲空间分到的空间是以1为单位的0.5 -->
+<!-- flex-basis如果设置为0%，说明不分配任何多余尺寸 -->
+<!-- flex-basis如果设置为带有px的单位，则是没有被分给多余尺寸时，item的大小-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,28 +17,34 @@
         flex-wrap: nowrap;
         column-gap: 20px;
         /* justify-content: flex-end; */
-        height: 600px;
+        height: 300px;
         align-content: space-between;
       }
       .box {
         background: lavender;
         width: 400px;
         height: 200px;
+        flex: 0;
       }
       .box6 {
-        order: 1;
-        flex-basis: 1900px;
+        /* order: 1; */
+        /* flex: 1; */
+        flex: 1.5;
+        flex-basis: 200px;
         /* flex-grow: 1; */
-        flex-shrink: 1;
+        /* flex-shrink: 1; */
       }
       .box4 {
-        order: 1;
+        /* order: 1; */
         /* flex-basis: 1900px; */
         /* flex-grow: 1; */
-        flex-shrink: 1;
+        /* flex-shrink: 1; */
+        flex: 1;
       }
       .box5 {
-        order: 2;
+        /* order: 2; */
+
+        flex: 0.5;
       }
     </style>
   </head>
@@ -47,6 +56,14 @@
       <box class="box box4">4</box>
       <box class="box box5">5</box>
       <box class="box box6">6</box>
+    </div>
+    <div class="container">
+      <box class="box box1">1</box>
+      <box class="box box2">2</box>
+      <box class="box box3">3</box>
+      <box class="box box4">4</box>
+      <box class="box box4">5</box>
+      <box class="box box4">6</box>
     </div>
   </body>
 </html>
