@@ -77,7 +77,9 @@ const Home = () => {
 
 ## 动效
 
-```
+### 动画
+
+````
 .sidebar-toggle {
   position: fixed;
   top: 2rem;
@@ -90,6 +92,8 @@ const Home = () => {
   cursor: pointer;
   animation: bounce 2s ease-in-out infinite;
 }
+// 函数名称bounce
+``` 0%-50%-100%，就是动画从开始到结束的时间发生的变化
 @keyframes bounce {
   0% {
     transform: scale(1);
@@ -101,4 +105,35 @@ const Home = () => {
     transform: scale(1);
   }
 }
+````
+
+### 模态框效果
+
+效果：点击 button 展示模态框
+让页面一直存在这个 Modal 组件
+但是点击 button 增加 CSS 类，达到展示模态框的效果
+
+1. 模态框结构：
+   modal-overlay 层嵌套 modal-container 层。
+   为了让 modal-overlay 能盖住下面的 button，那么必然要设置 z-index。而 position 为 absolute 和 fixed 才能设置 z-index。
+   初始状态，应该让这个 modal-overlay 隐藏起来，也就是说 visibility 为：hidden
+   也就是说展示一个 modal-overlay 的最小 CSS 为：
+
+```
+.modal-overlay{
+  background:rgba(0,0,0,.5);
+  position:fixed;
+  visibility:hidden;
+}
+.show-modal{
+  visibility:visible;
+  z-index:10
+}
+html :
+<div class="modal-overlay show-modal">
+  <div class="modal-container">
+    <h3>modal content</h3>
+    <button class="close-modal-btn"></button>
+  </div>
+</div>
 ```
