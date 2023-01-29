@@ -31,28 +31,30 @@ Promise.resolve()
 // 手写promise
 // Promise的reject方法和resolve方法是自有的，而不是被继承的，所以写在构造函数里面
 function myPromise(constructor) {
-  this.status = 'pending';
+  let self = this;
   this.value = undefined;
   this.reason = undefined;
+  this.status = 'pending';
+
   function resolve(value) {
-    if (this.status === 'pending') {
-      this.value = value;
-      this.status = 'fullfilled';
+    if (self.status === 'pending') {
+      self.status = 'fullfilled';
+      self.value = value;
     }
   }
   function reject(reason) {
-    if (this.status === 'pending') {
-      this.reason = reason;
-      this.status === 'rejected';
+    if (self.status === 'pending') {
+      self.status = 'rejected';
+      self.reason = reason;
     }
   }
   try {
-    // 构造器立刻执行
     constructor(resolve, reject);
   } catch (e) {
     throw new Error(e.message);
   }
 }
+
 // Promise实例上有then方法可以被调用
 myPromise.prototype.then = function (onFullfilled, onRejected) {
   const self = this;
@@ -115,4 +117,3 @@ let normal = 'normal';
 Promise.allSettled([fullfill, reject, normal]).then((res) => {
   console.log(res);
 });
-
