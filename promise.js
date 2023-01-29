@@ -31,11 +31,12 @@ Promise.resolve()
 // 手写promise
 // Promise的reject方法和resolve方法是自有的，而不是被继承的，所以写在构造函数里面
 function myPromise(constructor) {
+  // 一定要用self保存this
   let self = this;
   this.value = undefined;
   this.reason = undefined;
   this.status = 'pending';
-
+  // 不用self保存this，resolve中拿到的this值是指向global的
   function resolve(value) {
     if (self.status === 'pending') {
       self.status = 'fullfilled';
