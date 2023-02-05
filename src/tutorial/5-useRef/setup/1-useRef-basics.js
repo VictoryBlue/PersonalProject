@@ -12,10 +12,9 @@ const UseRefBasics = () => {
     console.log(refContainer.current.value);
     console.log(divContainer.current);
   };
-  useEffect(()=>{
-    console.log(refContainer.current)
-    refContainer.current.focus()
-  })
+  useEffect(() => {
+    refContainer.current.focus();
+  });
 
   return (
     <>

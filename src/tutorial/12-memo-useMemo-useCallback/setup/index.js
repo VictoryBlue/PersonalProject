@@ -27,11 +27,15 @@ const Index = () => {
   const addToCart = useCallback(() => {
     setCart(cart + 1);
   }, [cart]);
-// useMemo起到缓存值的作用，当依赖项不变，值也不变，返回return的值。
+  // const addToCart = () => {
+  //   setCart(cart + 1);
+  // };
+  // useMemo起到缓存值的作用，当依赖项不变，值也不变，返回return的值。
   const mostExpensive = useMemo(
     () => calculateMostExpensive(products),
     [products]
   );
+  // const mostExpensive = calculateMostExpensive(products);
   return (
     <>
       <h1>Count : {count}</h1>
