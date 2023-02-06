@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
       #first {
         width: 200px;
         height: 100px;
@@ -17,14 +20,26 @@
         border: 1px solid blue;
         position: absolute;
       }
+      #triangle {
+        border: 100px solid transparent;
+        width: 0;
+        border-top: 100px solid green;
+      }
     </style>
   </head>
 
   <body>
+    <button>click</button>
     <div id="first">first</div>
     <div id="first">first</div>
     <div id="first">first</div>
     <div id="second">second</div>
     <div id="first">first</div>
+    <div id="triangle"></div>
   </body>
+  <script>
+    document.querySelector('button').addEventListener('click', (e) => {
+      console.log(e.target);
+    });
+  </script>
 </html>

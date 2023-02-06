@@ -1,10 +1,12 @@
 #
 
-## hook
+## React
+
+### hook
 
 我发现只有在 React 的组件中引入相应的 hook，当 hook 变化，才会触发组件的重新渲染。以 index.js 为例，如果不在 index.js 引入 location 这样的 state，哪怕 Submenu 发生了渲染，AppProvider 作为组件，拥有着全局变量（包括 location），只要 index.js 没有在函数式组件中使用 location 这样的 hook，那么就不会触发整个 App 的 re-render
 
-## context
+### context
 
 1. context.js 里的 AppProvider 是一个组件，AppProvider 也是一个组件，AppProvider 封装 AppContext.Provider 之后可以使得代码更加容易复用，因为可以把相关函数一起封装到 AppProvider 中。
 
@@ -35,6 +37,12 @@
 
 5. 进而可以在子组件使用 useGlobalContext()获得全局变量。
 
+### 合成事件
+
+1. onMouseOver
+2. onMouseLeave
+实现鼠标悬浮，展开收起效果
+
 ## CSS 基础
 
 - grid 如果不设置 grid-template-columns 默认一行一个 item，元素表现为 block。
@@ -44,3 +52,15 @@
 ## hero 布局
 
 可以采用 grid 布局， 屏幕足够大的时候两栏布局 2:1【文字:图像】，屏幕变小后【抹去图像】。文字下有 button 跳转至 register 页面
+
+## ES6
+
+同名变量解构：
+
+```
+ const {
+    isSubmenuOpen,
+    location,
+    page: { page, links },
+  } = useGlobalContext();
+```
