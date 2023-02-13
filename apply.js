@@ -16,3 +16,4 @@ function person(name) {
 }
 
 console.log(person.apply({}, ['wls']));
+// arguments 在函数中可以指代传入的参数，但是它不具有数组的方法。
