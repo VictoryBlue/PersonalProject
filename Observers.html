@@ -1,0 +1,42 @@
+<!-- 观察者模式 -->
+<!-- 分别有观察者和被观察者 -->
+<!-- 被观察者有一些初始的属性和state，每次被观察者的state变动，都要通知观察者 -->
+<!-- 观察被通知后根据被观察者的现状进行update -->
+<!-- 所以其实总的而言：就是三个方法setObservers，setState，update和构造函数 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 补全代码
+      class Observerd {
+        constructor(name) {
+          this.name = name;
+          this.state = '走路';
+          this.Observers = [];
+        }
+        setObserver(Observer) {
+          this.Observers.push(Observer);
+        }
+        setState(state) {
+          this.state = state;
+          // 何时调用谁的update？
+          // state改变的时候，调用该被观察者的观察者的update
+          this.Observers.forEach((o) => {
+            o.update(this);
+          });
+        }
+      }
+
+      class Observer {
+        constructor() {}
+        update(observered) {
+          // 要根据被观察者的现状进行update，那么必然接受参数observered
+          console.log(observered.name + '正在' + observered.state);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -15,6 +15,7 @@ class EventEmitter {
         e();
       });
     }
+    
   }
 }
 // 有一些错误比较隐蔽
