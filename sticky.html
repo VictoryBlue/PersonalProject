@@ -5,29 +5,33 @@
     <meta charset="utf-8" />
     <title>菜鸟教程(runoob.com)</title>
     <style>
-      div.sticky {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 93px;
-        padding: 5px;
-        background-color: #cae8ca;
-        border: 2px solid #4caf50;
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .wrapper {
+        /* padding: 200px 0; */
+        height: 600px;
+        background-color: aquamarine;
+        position: relative;
+      }
+      .content {
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        height: 100px;
+        position: absolute;
       }
     </style>
+    <script>
+      function person() {
+        console.log('my name');
+      }
+    </script>
   </head>
   <body>
-    <p>尝试滚动页面。</p>
-    <p>注意: IE/Edge 15 及更早 IE 版本不支持 sticky 属性。</p>
-
-    <div class="sticky">我是粘性定位!</div>
-
-    <div style="padding-bottom: 2000px">
-      <p>滚动我</p>
-      <p>来回滚动我</p>
-      <p>滚动我</p>
-      <p>来回滚动我</p>
-      <p>滚动我</p>
-      <p>来回滚动我</p>
+    <div class="wrapper">
+      <div class="content">how</div>
     </div>
   </body>
 </html>

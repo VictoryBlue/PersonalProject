@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="ascii" />
+    <!-- char encoding is set equal to ASCII -->
+    <script>
+      console.log('inside head');
+      window.addEventListener('DOMContentLoaded', () => {
+        console.log('domcontentloaded');
+      });
+    </script>
+  </head>
+  <body>
+    <script>
+      console.log('end body');
+    </script>
+  </body>
+  <script>
+    console.log('out body');
+  </script>
+</html>
+
+<!-- The meta charset element is only about the characters that you can enter in the HTML file. If you have <meta charset="ascii">, it means you should only enter ASCII characters in your HTML file. You can still display Arabic text or any other language using HTML entities, although this is cumbersome. For example, with <meta charset="ascii">, you can use this instead for your Arabic text.
+
+<h1>!&#x645;&#x631;&#x62D;&#x628;&#x627; &#x628;&#x627;&#x644;&#x639;&#x627;&#x644;&#x645;</h1>
+
+While I don't recommend this since it's not readable, just note that some older editors might not support UTF-8 files. -->
