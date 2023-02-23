@@ -43,7 +43,22 @@ function deepclone(obj) {
   return newobj;
 }
 // 循环引用
+// 问题在于拷贝的对象的属性里，有一个属性指向对象本身，那么在原来的深拷贝过程中会不断的复制那个对象，直到空间不够用。
+const _completeDeepClone = (target, map = new Map()) => {
+  // 补全代码
+  if (typeof target !== 'object' || target === null) return target;
 
+  if (map.get(target)) return map.get(target);
+  map.set(target, true);
+  let copy = {};
+  if (target instanceof Array) copy = [];
+  for (let key in target) {
+    if (target.hasOwnProperty(key)) {
+      copy[key] = _completeDeepClone(target[key], map);
+    }
+  }
+  return copy;
+};
 // test
 const target = {
   field1: 1,

@@ -1,3 +1,7 @@
+// 发布订阅模式：
+// 这个类里面有两个方法，emit，on。emit用来发出一个事件，发出事件后执行这个事件对应的所有的回调
+// on用来增加对应事件一个回调。
+// 场景：消息推送？
 class EventEmitter {
   constructor() {
     this.event = {};
@@ -11,8 +15,8 @@ class EventEmitter {
   }
   emit(event) {
     if (event in this.event) {
-      this.event[event].forEach((e) => {
-        e();
+      this.event[event].forEach((callback) => {
+        callback();
       });
     }
     
