@@ -1,0 +1,57 @@
+<!-- 这个demo讲了一个什么事情呢？就是cookie的用法，如何保存用户的登录状态。
+如果有document.cookie说明，用户是要保存登录态的，然后把cookie字符串按照"; "分割
+提取出键值对，然后填入input框就好了，这实现了一个自动恢复密码用户名的功能。
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="">用户名</label>
+      <input type="username" />
+      <br />
+      <br />
+      <label>密码</label>
+      <input type="password" />
+      <br />
+      <label>记住我</label>
+      <input type="checkbox" name="" id="" />
+      <input type="submit" />
+    </form>
+    <script>
+      const username = document.querySelector('input[type="username"]');
+      const checkbox = document.querySelector('input[type="checkbox"]');
+      const submit = document.querySelector('input[type="submit"]');
+      console.log(username);
+      let cookie = {};
+      // 浏览器会自动给cookie里的各项属性加上"; "
+      // 同一个页面可能有不同的cookie，这时候的key-value都是存在一个cookie字符串里，不同的key-value用"; "分开
+      let array = document.cookie.split('; ').map((s) => {
+        return s.split('=');
+      });
+      for (let i of array) {
+        let key = i[0];
+        let value = i[1];
+        cookie[key] = value;
+      }
+
+      if (document.cookie) {
+        checkbox.checked = true;
+        username.value = cookie.username;
+      }
+      submit.addEventListener('click', (e) => {
+        e.preventDefault();
+        let key = 'yourname';
+        let value = encodeURIComponent(username.value);
+        console.log(username.value, value);
+        let twoDays = 2 * 24 * 60 * 60;
+        document.cookie = `${key}=${value};max-age=${twoDays}`;
+      });
+    </script>
+  </body>
+</html>
