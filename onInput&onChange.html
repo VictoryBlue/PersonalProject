@@ -1,0 +1,25 @@
+<!-- oninput和onchange区别在于，一个是输入的时候就改变值，一个是失去焦点的时候才改变值 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <input id="input" type="text" />
+    <span id="span"></span>
+
+    <script type="text/javascript">
+      // 补全代码
+      let el = document.querySelector('#input');
+      console.log(el);
+      let span = document.querySelector('#span');
+
+      el.addEventListener('change', (e) => {
+        span.innerText = e.target.value;
+      });
+      el.oninput = function () {
+        span.innerText = el.value;
+      };
+    </script>
+  </body>
+</html>
