@@ -4,7 +4,7 @@
 提取出键值对，然后填入input框就好了，这实现了一个自动恢复密码用户名的功能。
 -->
 <!-- cookie失效后浏览器一般会自行删除cookie -->
-<!-- cookie在传送的时候都是经过url编码的 -->
+<!-- cookie在传送的时候,所有键值对都是经过url编码的 -->
 <!-- cookie的长度限制一般是4096kb，如果你创建了更长的cookie，多余的部分会被浏览器丢掉 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
     <title>Document</title>
   </head>
   <style>
-    input:disabled{
+    input:disabled {
       background-color: aqua;
     }
   </style>
@@ -30,7 +30,7 @@
       <br />
       <label>记住我</label>
       <input type="checkbox" name="" id="" />
-      <input type="submit"  />
+      <input type="submit" />
     </form>
     <script>
       const username = document.querySelector('input[type="username"]');
@@ -55,7 +55,7 @@
       }
       submit.addEventListener('click', (e) => {
         e.preventDefault();
-        let key = 'username';
+        let key = encodeURIComponent('username');
         let value = encodeURIComponent(username.value);
         console.log(username.value, value);
         let twoDays = 2 * 24 * 60 * 60;
