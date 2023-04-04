@@ -1,8 +1,9 @@
 // 基于promise封装ajax
 // ajax——Asynchronous Javascript And XML，是一种用来和服务器通信的方式，可以接受和发送多种文件形式包括JSON,XML,HTML等。ajax最吸引人的特性是可以与服务端通信，更新页面数据，但是不需要刷新整个页面(https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
 // 既然是通信那必然是有来有回的，发请求用open，处理服务器返回响应的回调函数写在xhr.onreadystatechange——readystatechange事件发生，执行这个回调函数
-// xhr.open的第一个参数接受各种方法:get,post,head,或者服务器支持的其他方法，第二个参数url发送同源请求，如需跨源，需要配合服务端解决跨域问题。跨域exp:[https://domain-a.com uses XMLHttpRequest to make a request for https://domain-b.com/data.json.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+// xhr.open的第一个参数接受各种方法:get,post,head,或者服务器支持的其他方法，第二个参数url发送同源请求，如需跨源，需要配合服务端解决跨域问题。跨域exp:[https://domain-a.com uses XMLHttpRequest to make a request for https://domain-b.com/data.json.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS),也就是说在浏览器请求百度是不会成功的
 // 就像 fetch 一样，默认情况下不会将 cookie 和 HTTP 授权发送到其他域。要启用它们，可以将 xhr.withCredentials 设置为 true：
+
 function ajax(url, method) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();

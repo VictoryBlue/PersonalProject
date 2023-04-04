@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    name:<input id="name" /> age:<input id="age" />
+    <p id="pName"></p>
+    <p id="pAge"></p>
+  </body>
+  <script>
+    let name = document.querySelector('#name');
+    let age = document.querySelector('#age');
+    let pName = document.querySelector('#pName');
+    let pAge = document.querySelector('#pAge');
+    const data = { name: '王柳苏', age: 18 };
+
+    let proxy = new Proxy(data, {
+      set(target, property, value) {
+        target[property] = value;
+        return true;
+      },
+    });
+
+    name.value = proxy.name;
+    age.value = proxy.age;
+    name.addEventListener('input', () => {
+      proxy.name = name.value;
+    });
+    age.addEventListener('input', () => {
+      proxy.age = age.value;
+    });
+  </script>
+</html>

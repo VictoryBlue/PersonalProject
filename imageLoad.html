@@ -1,0 +1,30 @@
+场景：图片有一闪而过的框
+DOMContentLoaded事件对应着html解析，图片的渲染并不会阻塞html的解析，也不会阻塞页面的渲染。
+当整张图片渲染完毕后，触发onload事件。
+图片在下载的表现是，整个图片慢慢地铺满页面中它应该有的位置。
+所以这个业务场景为什么不适合用图片预加载和图片懒加载：
+1.图片懒加载适合的场景是我或许不会用到这张图片，当可能用到的时候再加载【计算元素离窗口的距离，小于阈值则请求】
+2.图片预加载适合的场景，知道这些图片之后肯定或者大概率要用到，那么可以预先加载【link type：preload as：image】
+至于这个场景，使用图片预加载不是不行，但是就是说主要是这个用到的图片是在首屏，而且立刻呈现，是先写在head preload还是写在img里发起异步请求，差别不大。
+最后发现问题是element-ui的el-image自动给图片设置了background，把这个图片换成原生html就解决问题。
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                console.log('DOMContentLoaded')
+            })
+            window.onload = function() {
+                console.log('onload')
+            }
+        </script>
+    </head>
+    <body>
+        <h1>我是 h1 标签</h1>
+        <img src="./logo.PNG" />
+
+        <h2>我是 h2 标签</h2>
+    </body>
+</html>

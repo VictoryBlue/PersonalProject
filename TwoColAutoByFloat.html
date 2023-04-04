@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Floated Layout Example</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      /* 添加BFC，因为浮动的子元素会使得父元素高度发生塌陷 */
+      /* BFC可以用来包含浮动元素，以及解决边距塌陷问题 */
+      /* float 的值不为 none。
+        overflow 的值不为 visible。
+        position 的值不为 relative 和 static。
+        display 的值为 table-cell, table-caption, inline-block 中的任何一个。 */
+      .container {
+        overflow: hidden;
+        /* position: relative; */
+      }
+      .left {
+        height: 400px;
+        width: 20%;
+        float: left;
+        background-color: bisque;
+      }
+      .right {
+        height: 200px;
+        /* 撑开左边 */
+        margin-left: calc(21%);
+        width: 70%;
+
+        background-color: #999;
+      }
+      ul {
+        max-height: 0px;
+        overflow: hidden;
+      }
+      .menu:hover {
+        overflow: visible;
+      }
+      .menu:hover ul{
+        max-height: 200px;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+    <p>这里需要添加BFC</p>
+    <div class="menu">
+      <button>me</button>
+      <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

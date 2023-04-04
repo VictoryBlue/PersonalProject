@@ -12,7 +12,7 @@ Function.prototype.myCall = function (context, ...args) {
 // function person(name) {
 //   this.name = name;
 // }
-// a = {};
+// a = {}
 // person.myCall(a, 'wls');
 
 // console.log(a);

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float three col auto</title>
+    <style>
+      .left {
+        height: 400px;
+        width: 200px;
+        float: left;
+        background-color: bisque;
+      }
+      .right {
+        height: 200px;
+        /* 撑开左边 */
+        width: 200px;
+        background-color: #999;
+        float: right;
+      }
+      .center {
+        background-color: aquamarine;
+        /* calc的减号两边要有空格 */
+        /* width: calc(100% - 400px); */
+        /* float: left; */
+        width: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">left</div>
+      <div class="right">right</div>
+      <div class="center">center</div>
+    </div>
+  </body>
+</html>
