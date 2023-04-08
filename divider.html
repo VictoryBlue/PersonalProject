@@ -7,10 +7,11 @@
   <style>
     * {
       margin: 0;
+      padding: 0;
     }
     #line {
       margin-top: 10px;
-      border: 1px solid darkblue;
+      border: 1px dotted darkblue;
       position: relative;
     }
     #child {
@@ -21,6 +22,18 @@
       transform: translate(-50%, -50%);
       background-color: #fff;
       z-index: 1;
+    }
+    .vertical {
+      /* 行内块元素方便设置高度【行内元素不能设置高度和宽度】，利用了inline-block不占有一行的块元素的特点。 */
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      margin-left: 8px;
+      /* 垂直居中 */
+      vertical-align: middle;
+      background-color: #555;
+      /* 让竖线有颜色 */
+      /* background-color: #333; */
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@2.7.0/dist/bundle.min.js"></script>
@@ -34,6 +47,10 @@
   <body>
     <div id="line">
       <div id="child">text</div>
+    </div>
+    <div>
+      <div class="vertical"></div>
+      <a style="text-decoration: none; vertical-align: middle">hello</a>
     </div>
   </body>
   <script></script>
