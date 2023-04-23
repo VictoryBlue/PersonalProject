@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1"
+  }
+}
