@@ -13,7 +13,8 @@ Object.keys(person).map((item) => {
   });
 });
 // 把value当成是一个左值，而不是右值
-// getter，setter函数里
+// getter，setter函数里有可能会发生循环引用
+// getter中 return this.key  setter中 this[key] = value
 Object.keys(person).map((item) => {
   observeObj(person, item, person[item]);
 });
