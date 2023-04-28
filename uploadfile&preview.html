@@ -1,4 +1,4 @@
-<!-- 实现图片预览功能 -->
+<!-- 实现图片预览功能,点击链接下载功能 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,6 +19,11 @@
         const img = document.createElement('img');
         img.setAttribute('src', contents);
         document.querySelector('body').appendChild(img);
+        // 点击链接下载文件
+        const a = document.createElement('a');
+        a.setAttribute('href', contents);
+        a.innerText = 'click to download';
+        document.querySelector('body').append(a);
       });
       reader.onerror = () => {
         alert('file prase error');
