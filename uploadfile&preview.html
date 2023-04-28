@@ -1,0 +1,36 @@
+<!-- 实现图片预览功能 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" name="" id="" />
+    <script>
+      const fileInput = document.querySelector('input');
+
+      const reader = new FileReader();
+      reader.addEventListener('load', (event) => {
+        console.log('hello file has been prased');
+        const contents = event.target.result;
+        const img = document.createElement('img');
+        img.setAttribute('src', contents);
+        document.querySelector('body').appendChild(img);
+      });
+      reader.onerror = () => {
+        alert('file prase error');
+      };
+      // 获取文件
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        console.log('have upload file', file);
+        // 为了将文件读取为DataURL，需要将file转换成Blob对象。
+        // 让reader将文件转化成合适的形式，转化成DataURL形式，写在img的src属性里可以完成图片预览功能
+        reader.readAsDataURL(new Blob([file]));
+      });
+    </script>
+  </body>
+</html>
