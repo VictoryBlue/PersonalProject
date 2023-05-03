@@ -48,7 +48,7 @@ const _completeDeepClone = (target, map = new Map()) => {
   // 补全代码
   if (typeof target !== 'object' || target === null) return target;
 
-  if (map.get(target)) return map.get(target);
+  if (map.get(target)) return target;
   map.set(target, true);
   let copy = {};
   if (target instanceof Array) copy = [];
